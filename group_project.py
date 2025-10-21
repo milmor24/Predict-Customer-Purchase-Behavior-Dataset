@@ -6,6 +6,9 @@ def load_dataset():
      ds_name = input("Type the name of the dataset (CSV): ").strip()
      try:
           df = pd.read_csv(ds_name)
+          
+          print(df.head())
+          return df
      except:
 
 
