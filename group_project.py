@@ -111,8 +111,10 @@ class CPP: # Customer Purchase Prediction class, includes all methods
                print("No dataset loaded.")
                return
 
-          print("\nSimulate Environment")
-          print("Enter values for a new customer:") # Prompting user for new customer data
+          print("\nSimulate Environment") # Prompting user for new customer data
+          print("Enter numeric values for a new customer:\n" \
+          "Gender: Male = 0, Female = 1, loyalty program: No = 0, Yes = 1\n" \
+          "Categories: Electronics = 0, Clothing = 1, Home Goods = 2, Beauty = 3, Sports = 4\n")
 
           # Getting all feature names except the target column into a list called 'feature_cols'
           feature_cols = [col for col in self.df.columns if col != "PurchaseStatus"]
@@ -136,17 +138,24 @@ class CPP: # Customer Purchase Prediction class, includes all methods
 
 
       
-print("Welcome to this program for Predicting Customer Purchase Behavior.\n" \
-"By evaluating customer data such as 'Gender, AnnualIncome, NumberOfPurchases, ProductCategory, TimeSpentOnWebsite-\n" \
-"LoyaltyProgram and DiscountsAvailed, we can predict whether a customer is likely to make a purchase or not.\n" \
-"Choose an option from the menu below to get started!")
+print(
+    "Welcome to this program for Predicting Customer Purchase Behavior.\n"
+    "By evaluating customer data such as Gender, AnnualIncome (in dollars), NumberOfPurchases, ProductCategory,\n"
+    "TimeSpentOnWebsite (in minutes), LoyaltyProgram, and DiscountsAvailed, we can predict whether a customer\n"
+    "is likely to make a purchase or not.\n"
+    "Choose an option from the menu below to get started!"
+)
 
 cpp = CPP()
 while True:
     
      print("Menu:\n(1) Load Dataset\n(2) Train a Classification Model\n(3) Evaluate and Save the Performance\n"
      "(4) Simulate environment\n(9) Quit and lose data:")
-     choice = int(input("Enter the number of your choice: "))
+     try:
+          choice = int(input("Enter the number of your choice: "))
+     except ValueError:
+          print("Please enter a valid number.\n")
+          continue
 
      match choice:
           case 1:
