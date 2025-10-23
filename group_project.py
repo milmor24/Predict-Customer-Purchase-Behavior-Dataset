@@ -111,7 +111,8 @@ class CPP: # Customer Purchase Prediction class, includes all methods
                print("No dataset loaded.")
                return
 
-          print("\nSimulate Environment") # Prompting user for new customer data
+          print("\nSimulate Environment")
+          # Prompting user for new customer data
           print("Enter numeric values for a new customer:\n" \
           "Gender: Male = 0, Female = 1, loyalty program: No = 0, Yes = 1\n" \
           "Categories: Electronics = 0, Clothing = 1, Home Goods = 2, Beauty = 3, Sports = 4\n")
